@@ -17,7 +17,6 @@
       <version>3.2.0</version>
     </dependency>
 
-    <!-- Redis -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-redis</artifactId>
@@ -40,10 +39,6 @@
       <id>maven-releases</id>
       <url>http://13.201.141.194:8081/repository/maven-releases/</url>
     </repository>
-    <snapshotRepository>
-      <id>maven-snapshots</id>
-      <url>http://13.201.141.194:8081/repository/maven-snapshots/</url>
-    </snapshotRepository>
   </distributionManagement>
 
 </project>

@@ -20,11 +20,11 @@ pipeline {
       steps { sh 'mvn deploy -DskipTests' }
     }
 
-    stage('Build Docker') {
+    stage('Build Docker Image') {
       steps { sh 'docker build -t $IMAGE:$VERSION .' }
     }
 
-    stage('Push Docker') {
+    stage('Push Docker Image') {
       steps {
         withCredentials([usernamePassword(
           credentialsId: 'nexus-creds',

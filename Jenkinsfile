@@ -19,10 +19,10 @@ pipeline {
       }
     }
 
-    stage('Build JAR') {
+    stage('Build Fresh JAR') {
       steps {
         sh '''
-        mvn clean package -DskipTests
+        mvn clean package -DskipTests -Drevision=$VERSION
         ls -lh target/
         jar tf target/app.jar | grep BOOT-INF
         '''
@@ -31,7 +31,9 @@ pipeline {
 
     stage('Push JAR to Nexus') {
       steps {
-        sh 'mvn deploy -DskipTests'
+        sh '''
+        mvn deploy -DskipTests -Drevision=$VERSION
+        '''
       }
     }
 
